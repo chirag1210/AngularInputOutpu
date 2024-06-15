@@ -1,0 +1,11 @@
+<div class="panel-heading">{{ dataFromParent.name }}</div>
+<div class="panel-body">
+    <p>
+        @if (dataFromParent.type === 'server') {
+        <strong style="color: red">{{ dataFromParent.content }}</strong>
+        }
+        @else if (dataFromParent.type === 'blueprint') {
+        <em>{{ dataFromParent.content }}</em>
+        }
+    </p>
+</div>
