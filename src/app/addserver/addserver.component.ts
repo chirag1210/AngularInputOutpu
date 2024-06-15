@@ -17,11 +17,7 @@ export class AddserverComponent {
   newServerContent = '';
 
   onAddServer() {
-    // this.serverElements.push({
-    //   type: 'server',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
+    
     this.dataEvent.emit({
          type: 'server',
          name: this.newServerName,
@@ -30,11 +26,7 @@ export class AddserverComponent {
   }
 
   onAddBlueprint() {
-    // this.serverElements.push({
-    //   type: 'blueprint',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
+
     this.dataEvent.emit({
       type: 'blueprint',
       name: this.newServerName,
