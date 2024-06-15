@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -16,21 +16,25 @@ export class AddserverComponent {
   newServerName = '';
   newServerContent = '';
 
-  onAddServer() {
-    
+  @ViewChild("serverContentInput", { static: true })
+  serverContentInput!: ElementRef;
+
+
+  onAddServer(serverNameInputElement: HTMLInputElement) {
+
     this.dataEvent.emit({
-         type: 'server',
-         name: this.newServerName,
-         content: this.newServerContent
-       }); 
+      type: 'server',
+      name: serverNameInputElement.value,
+      content: this.serverContentInput.nativeElement.value
+    });
   }
 
-  onAddBlueprint() {
+  onAddBlueprint(serverNameInputElement: HTMLInputElement) {
 
     this.dataEvent.emit({
       type: 'blueprint',
-      name: this.newServerName,
-      content: this.newServerContent
-    }); 
+      name: serverNameInputElement.value,
+      content: this.serverContentInput.nativeElement.value
+    });
   }
 }
